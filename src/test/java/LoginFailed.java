@@ -15,9 +15,9 @@ public class LoginFailed {
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
         driver.findElement(By.cssSelector("input[value='Login']")).click();
 
-        WebElement buttonAdd = driver.findElement(By.xpath("//h3[@data-test='error']"));
-        String buttonAddName = buttonAdd.findElement(By.xpath("//h3[@data-test='error']")).getText();
-        System.out.println(buttonAddName.equals("Epic sadface: Sorry, this user has been locked out."));
+        WebElement textError = driver.findElement(By.xpath("//h3[@data-test='error']"));
+        String textErrorData = textError.findElement(By.xpath("//h3[@data-test='error']")).getText();
+        System.out.println(textErrorData.equals("Epic sadface: Sorry, this user has been locked out."));
 
         driver.findElement(By.xpath("//button[@class='error-button']")).click();
 
