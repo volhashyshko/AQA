@@ -1,3 +1,5 @@
+package tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,8 +34,8 @@ public class End2EndScenario {
 
         driver.findElement(By.xpath("//button[@name='finish']")).click();
 
-        WebElement textSucces = driver.findElement(By.xpath("//h2[@class='complete-header']"));
-        String buttonName = textSucces.findElement(By.xpath("//h2[@class='complete-header']")).getText();
+        WebElement textSuccess = driver.findElement(By.xpath("//h2[@class='complete-header']"));
+        String buttonName = textSuccess.findElement(By.xpath("//h2[@class='complete-header']")).getText();
         System.out.println(buttonName.equals("Thank you for your order!"));
 
         driver.findElement(By.xpath("//button[@name='back-to-products']")).click();
