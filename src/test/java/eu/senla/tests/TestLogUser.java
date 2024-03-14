@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class TestLogUser {
         private final WebDriver driver = Driver.getChromeDriver();
     @Test
+    @Order(1)
     @DisplayName("Проверка блокировки пользователя")
     public void logInLocked() throws InterruptedException {
         System.out.println("Начальная страница открыта");
@@ -32,6 +33,7 @@ public class TestLogUser {
     }
 
     @Test
+    @Order(2)
     @Disabled ("Тест, который проигнорирован при запуске")
     @DisplayName("Проверка успешного входа пользователя- забагованная версия")
     public void logIn() throws InterruptedException {
