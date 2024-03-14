@@ -10,7 +10,7 @@ public class End2EndScenario {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Webdriver\\chromedriver-win64\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
@@ -45,7 +45,6 @@ public class End2EndScenario {
         driver.findElement(By.id("logout_sidebar_link")).click();
 
         Thread.sleep(5000);
-
 
         driver.close();
         driver.quit();
