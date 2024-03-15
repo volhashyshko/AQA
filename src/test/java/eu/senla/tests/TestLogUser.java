@@ -26,7 +26,7 @@ public class TestLogUser {
         String textErrorDataLog = textErrorLog.findElement(By.xpath("//h3[@data-test='error']")).getText();
         System.out.println(textErrorDataLog.equals("Epic sadface: Sorry, this user has been locked out."));
         Assertions.assertEquals("Epic sadface: Sorry, this user has been locked out.", textErrorDataLog, "Сообщение об ошибке отсутсвует или не соответсвует ТЗ");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@class='error-button']")).click();
 
         driver.navigate().refresh();
@@ -48,7 +48,7 @@ public class TestLogUser {
         String pageTitle = driver.getTitle();
         Assertions.assertEquals("Swag Labs", pageTitle, "Открыта не Swag Labs или название страницы неверно");
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
     @AfterAll
     public void quit(){
