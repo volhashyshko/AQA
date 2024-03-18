@@ -15,7 +15,7 @@ public class TestLesson5 {
     @BeforeAll
     public void logIn(){
         System.out.println("Начальная страница открыта");
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//-----
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
@@ -26,6 +26,11 @@ public class TestLesson5 {
 
         //--Нет категорий, проверим сколько всего товаров на странице
         System.out.println("Количество товаров на странице: " + (long) driver.findElements(By.xpath("//div[@class='inventory_item']")).size());
+    }
+    @AfterAll//--- пишется сразу после BeforeAll
+    public void quit(){
+        driver.quit();
+        System.out.println("Браузер закрыт");
     }
 
     @Test
@@ -115,9 +120,5 @@ public class TestLesson5 {
 
         Thread.sleep(1000);
     }
-    @AfterAll
-    public void quit(){
-        driver.quit();
-        System.out.println("Браузер закрыт");
-    }
+
 }
