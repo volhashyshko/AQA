@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.Driver;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestLogUser {
@@ -15,7 +15,7 @@ public class TestLogUser {
     @DisplayName("Проверка блокировки пользователя")
     public void logInLocked() throws InterruptedException {
         System.out.println("Начальная страница открыта");
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("locked_out_user");
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
@@ -28,7 +28,6 @@ public class TestLogUser {
         Assertions.assertEquals("Epic sadface: Sorry, this user has been locked out.", textErrorDataLog, "Сообщение об ошибке отсутсвует или не соответсвует ТЗ");
         Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@class='error-button']")).click();
-
         driver.navigate().refresh();
     }
 
@@ -38,7 +37,7 @@ public class TestLogUser {
     @DisplayName("Проверка успешного входа пользователя- забагованная версия")
     public void logIn() throws InterruptedException {
         System.out.println("Начальная страница открыта");
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("problem_user");
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
@@ -52,6 +51,7 @@ public class TestLogUser {
     }
     @AfterAll
     public void quit(){
+        driver.close();
         driver.quit();
         System.out.println("Браузер закрыт");
     }

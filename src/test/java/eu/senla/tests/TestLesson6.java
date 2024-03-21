@@ -27,47 +27,40 @@ public class TestLesson6 {
 
         @AfterAll
         public void quit() {
-            driver.close();// найти в чем проблема открытия нескольких инстансов
+            driver.close();
             driver.quit();
             System.out.println("Браузер закрыт");
         }
-
         @Test
         @DisplayName("Тест, который проверяет сценарий задания Lesson 6")
         public void e2eScenario() throws InterruptedException {
             ProductPage productsPage = new ProductPage(driver);
 
-            //Добавление товара 1 (самый дешевый)
+            System.out.println("Добавление товаров в корзину");
+
             productsPage.sortByPriceLowest();
             productsPage.getProductNameLowest();
-            System.out.println("Название первого товара: " + productsPage.getProductNameLowest());
             productsPage.addToCart();
-            System.out.println("Товар 1 добавлен в корзину");
+            System.out.println("Товар 1 добавлен");
 
-            // Добавление товара 2 (самый дорогой)
             productsPage.sortByPriceHighest();
             productsPage.getProductNameHighest();
-            System.out.println("Название второго товара: " + productsPage.getProductNameHighest());
             productsPage.addToCart();
-            System.out.println("Товар 2 добавлен в корзину");
+            System.out.println("Товар 2 добавлен");
 
-            // Добавление товара 3
             productsPage.sortByPriceFirstInEnd();
             productsPage.getProductNameFirstInEnd();
-            System.out.println("Название третьего товара: " + productsPage.getProductNameFirstInEnd());
             productsPage.addToCart();
-            System.out.println("Товар 3 добавлен в корзину");
+            System.out.println("Товар 3 добавлен");
 
-            // Переход в корзину
             productsPage.goToCart();
-            System.out.println("Переход в корзину успешен");
+            System.out.println("Переход в корзину");
 
             CartPage cartPage = new CartPage(driver);
 
             long itemCount = cartPage.getCardItemCount();
             System.out.println("Количество товаров на странице: " + itemCount);
 
-           //--проверка, что именно выбранные вещи добавлены в корзину
             System.out.println("Проверка соответствия товаров в корзине");
 
             cartPage.getProductNameFirst();
@@ -79,8 +72,7 @@ public class TestLesson6 {
             cartPage.getProductNameThird();
             System.out.println("Название третьего товара: " + cartPage.getProductNameThird());
 
-
-            //--удаление товара из корзины
+            System.out.println("Один товар удален");
             cartPage.deleteProduct();
 
             long itemCountAfretDelete = cartPage.getCardItemCount();
@@ -91,6 +83,5 @@ public class TestLesson6 {
 
             Thread.sleep(1000);
         }
-
 }
 

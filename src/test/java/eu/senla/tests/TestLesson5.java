@@ -5,7 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.Driver;
-import java.util.concurrent.TimeUnit;
+
+import java.time.Duration;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestLesson5 {
@@ -15,7 +16,7 @@ public class TestLesson5 {
     @BeforeAll
     public void logIn(){
         System.out.println("Начальная страница открыта");
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//-----
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
