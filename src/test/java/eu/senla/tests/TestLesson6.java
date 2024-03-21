@@ -40,18 +40,18 @@ public class TestLesson6 {
 
             productsPage.sortByPriceLowest();
             productsPage.getProductNameLowest();
+            System.out.println("Товар 1 добавлен - "+productsPage.getProductNameLowest());
             productsPage.addToCart();
-            System.out.println("Товар 1 добавлен");
 
             productsPage.sortByPriceHighest();
             productsPage.getProductNameHighest();
+            System.out.println("Товар 2 добавлен - "+productsPage.getProductNameHighest());
             productsPage.addToCart();
-            System.out.println("Товар 2 добавлен");
 
             productsPage.sortByPriceFirstInEnd();
             productsPage.getProductNameFirstInEnd();
+            System.out.println("Товар 3 добавлен - "+productsPage.getProductNameFirstInEnd());
             productsPage.addToCart();
-            System.out.println("Товар 3 добавлен");
 
             productsPage.goToCart();
             System.out.println("Переход в корзину");
@@ -64,19 +64,19 @@ public class TestLesson6 {
             System.out.println("Проверка соответствия товаров в корзине");
 
             cartPage.getProductNameFirst();
-            System.out.println("Название первого товара: " + cartPage.getProductNameFirst());
+            System.out.println("Название 1 товара - " + cartPage.getProductNameFirst());
 
             cartPage.getProductNameSecond();
-            System.out.println("Название второго товара: " + cartPage.getProductNameSecond());
+            System.out.println("Название 2 товара - " + cartPage.getProductNameSecond());
 
             cartPage.getProductNameThird();
-            System.out.println("Название третьего товара: " + cartPage.getProductNameThird());
+            System.out.println("Название 3 товара - " + cartPage.getProductNameThird());
 
             System.out.println("Один товар удален");
             cartPage.deleteProduct();
 
-            long itemCountAfretDelete = cartPage.getCardItemCount();
-            System.out.println("Количество товаров на странице: " + itemCountAfretDelete);
+            long itemCountAfterDelete = cartPage.getCardItemCount();
+            System.out.println("Количество товаров на странице: " + itemCountAfterDelete);
 
             cartPage.backToTheHomePage();
             System.out.println("Осуществлен возврат на главную страницу");

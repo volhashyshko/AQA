@@ -3,7 +3,7 @@ package eu.senla.pageObjects;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class LoginPage {
     private final WebDriver driver;
@@ -14,7 +14,7 @@ public class LoginPage {
 
     public void openLoginPage() {
         System.out.println("Начальная страница открыта");
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
         driver.get("https://www.saucedemo.com/");
     }
 
