@@ -35,7 +35,8 @@ public class LoginPage {
     }
 
     public long getTotalItemCount() {
-                return driver.findElements(By.xpath("//div[@class='inventory_item']")).size();
+
+        return driver.findElements(By.xpath("//div[@class='inventory_item']")).size();
     }
 }
 

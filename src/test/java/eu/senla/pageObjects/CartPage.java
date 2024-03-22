@@ -8,6 +8,7 @@ public class CartPage {
     private final WebDriver driver;
 
     public CartPage(WebDriver driver) {
+
         this.driver = driver;
     }
 

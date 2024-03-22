@@ -1,6 +1,7 @@
 package eu.senla.tests;
 
 import eu.senla.pageObjects.CartPage;
+import eu.senla.pageObjects.CloseBrowser;
 import eu.senla.pageObjects.LoginPage;
 import eu.senla.pageObjects.ProductPage;
 import org.junit.jupiter.api.*;
@@ -27,9 +28,8 @@ public class TestLesson6 {
 
         @AfterAll
         public void quit() {
-            driver.close();
-            driver.quit();
-            System.out.println("Браузер закрыт");
+            CloseBrowser closeBrowser = new CloseBrowser(driver);
+            closeBrowser.quit();
         }
         @Test
         @DisplayName("Тест, который проверяет сценарий задания Lesson 6")
@@ -37,7 +37,6 @@ public class TestLesson6 {
             ProductPage productsPage = new ProductPage(driver);
 
             System.out.println("Добавление товаров в корзину");
-
             productsPage.sortByPriceLowest();
             productsPage.getProductNameLowest();
             System.out.println("Товар 1 добавлен - "+productsPage.getProductNameLowest());
@@ -62,7 +61,6 @@ public class TestLesson6 {
             System.out.println("Количество товаров на странице: " + itemCount);
 
             System.out.println("Проверка соответствия товаров в корзине");
-
             cartPage.getProductNameFirst();
             System.out.println("Название 1 товара - " + cartPage.getProductNameFirst());
 
