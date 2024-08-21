@@ -82,4 +82,3 @@ public class TestLesson6 {
             Thread.sleep(1000);
         }
 }
-
