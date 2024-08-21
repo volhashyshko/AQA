@@ -1,9 +1,9 @@
 package eu.senla.tests;
 
-import eu.senla.pageObjects.CartPage;
-import eu.senla.pageObjects.CloseBrowser;
-import eu.senla.pageObjects.LoginPage;
-import eu.senla.pageObjects.ProductPage;
+import pageObjects.CartPage;
+import pageObjects.CloseBrowser;
+import pageObjects.LoginPage;
+import pageObjects.ProductPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import utils.Driver;

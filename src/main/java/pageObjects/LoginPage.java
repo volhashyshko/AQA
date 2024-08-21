@@ -1,4 +1,4 @@
-package eu.senla.pageObjects;
+package pageObjects;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
