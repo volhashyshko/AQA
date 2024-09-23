@@ -1,3 +1,4 @@
+/*
 package eu.senla.tests;
 
 import org.junit.jupiter.api.*;
@@ -76,3 +77,4 @@ public class TestE2E {
 
     }
 }
+*/

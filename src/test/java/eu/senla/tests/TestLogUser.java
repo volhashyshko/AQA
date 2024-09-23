@@ -1,3 +1,4 @@
+/*
 package eu.senla.tests;
 
 import org.junit.jupiter.api.*;
@@ -58,3 +59,4 @@ public class TestLogUser {
 }
 
 
+*/

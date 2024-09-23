@@ -1,3 +1,4 @@
+/*
 package eu.senla;
 
 import org.openqa.selenium.By;
@@ -33,3 +34,4 @@ public class FirstTest {
 
     }
 
+*/

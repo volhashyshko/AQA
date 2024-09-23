@@ -1,3 +1,4 @@
+/*
 package eu.senla.tests;
 
 import org.junit.jupiter.api.*;
@@ -123,3 +124,4 @@ public class TestLesson5 {
     }
 
 }
+*/

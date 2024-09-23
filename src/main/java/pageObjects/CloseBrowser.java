@@ -1,3 +1,4 @@
+/*
 package pageObjects;
 
 import org.openqa.selenium.WebDriver;
@@ -16,3 +17,4 @@ public class CloseBrowser {
         System.out.println("Браузер закрыт");
     }
 }
+*/

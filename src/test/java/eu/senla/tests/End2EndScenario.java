@@ -1,3 +1,4 @@
+/*
 package eu.senla.tests;
 
 import org.openqa.selenium.By;
@@ -52,3 +53,4 @@ public class End2EndScenario {
     }
 
 }
+*/

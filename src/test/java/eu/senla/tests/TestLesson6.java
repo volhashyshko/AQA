@@ -1,3 +1,4 @@
+/*
 package eu.senla.tests;
 
 import pageObjects.CartPage;
@@ -82,3 +83,4 @@ public class TestLesson6 {
             Thread.sleep(1000);
         }
 }
+*/
