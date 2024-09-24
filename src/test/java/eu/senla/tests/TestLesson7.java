@@ -16,10 +16,8 @@ public class TestLesson7 {
         loginPage.enterCredentials("standard_user", "secret_sauce");
         loginPage.clickLoginButton();
         loginPage.verifyPageTitle();
-
-        long itemCount = loginPage.getTotalItemCount();
-        System.out.println("Количество товаров на странице: " + itemCount);
-    }
+        loginPage.getTotalItemCount();
+       }
     @AfterAll
     public void tearDown() {
         closeWebDriver();
@@ -50,9 +48,7 @@ public class TestLesson7 {
         System.out.println("Переход в корзину");
 
         CartPage cartPage = new CartPage();
-
-        long itemCount = cartPage.getCardItemCount();
-        System.out.println("Количество товаров на странице: " + itemCount);
+        cartPage.getCardItemCount();
 
         System.out.println("Проверка соответствия товаров в корзине");
         cartPage.getProductNameFirst();
@@ -66,13 +62,9 @@ public class TestLesson7 {
 
         System.out.println("Один товар удален");
         cartPage.deleteProduct();
-
-        long itemCountAfterDelete = cartPage.getCardItemCount();
-        System.out.println("Количество товаров на странице: " + itemCountAfterDelete);
-
+        cartPage.getCardItemCount();
         cartPage.backToTheHomePage();
         System.out.println("Осуществлен возврат на главную страницу");
-
         Thread.sleep(1000);
     }
 }

@@ -30,7 +30,8 @@ public class LoginPage {
         //Assertions.assertEquals(expectedTitle, actualTitle, "Открыта не Swag Labs или название страницы неверно");
     }
     public long getTotalItemCount() {
-        $$(".inventory_item").size();
+        int count = $$(".inventory_item").size();
+        System.out.println("Количество товаров на странице: " + count);
         return 0;
     }
 }

@@ -8,7 +8,8 @@ public class CartPage {
     public CartPage() {
     }
     public long getCardItemCount(){
-        $$(By.xpath("//div[@class='cart_item_label']")).size();
+        int itemCount = $$(By.xpath("//div[@class='cart_item_label']")).size();
+        System.out.println("Количество товаров на странице: " + itemCount);
         return 0;
     }
     public String getProductNameFirst() {
