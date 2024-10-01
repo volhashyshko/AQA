@@ -1,11 +1,16 @@
 package pageObjects;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ProductPage {
+
+    public void verifyPageTitle() {
+        Assertions.assertEquals("Products", $(".title").getText());
+    }
     public ProductPage() {
-       }
+    }
     public void sortByPriceLowest() {
         $(By.xpath("//select[@class='product_sort_container']")).click();
         $(By.xpath("//option[@value='az']")).click();

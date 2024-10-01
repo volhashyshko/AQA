@@ -15,11 +15,11 @@ public class TestLesson7 {
         loginPage.openLoginPage();
         loginPage.enterCredentials("standard_user", "secret_sauce");
         loginPage.clickLoginButton();
-        loginPage.verifyPageTitle();
         loginPage.getTotalItemCount();
        }
     @AfterAll
     public void tearDown() {
+
         closeWebDriver();
     }
 
@@ -28,6 +28,7 @@ public class TestLesson7 {
     public void e2eScenario() throws InterruptedException {
         ProductPage productsPage = new ProductPage();
 
+        productsPage.verifyPageTitle();
         System.out.println("Добавление товаров в корзину");
         productsPage.sortByPriceLowest();
         productsPage.getProductNameLowest();
