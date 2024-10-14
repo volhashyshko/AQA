@@ -9,7 +9,7 @@ public class CartPage {
     }
     public void getCardItemCount(){
         int itemCount = $$(By.xpath("//div[@class='cart_item_label']")).size();
-        System.out.println("Количество товаров на странице: " + itemCount);
+        System.out.println("Количество товаров в корзине: " + itemCount);
     }
     public String getProductNameFirst() {
         return $(By.xpath("//a[@id='item_4_title_link']")).getText();

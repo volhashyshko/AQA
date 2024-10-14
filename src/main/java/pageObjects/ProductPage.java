@@ -1,26 +1,31 @@
 package pageObjects;
 
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ProductPage {
+    private final SelenideElement sortDropdown;
+    private final SelenideElement titleElement = $(".title");
 
     public void verifyPageTitle() {
-        Assertions.assertEquals("Products", $(".title").getText());
+        String actualValue = titleElement.getText();
+        Assertions.assertEquals("Products", actualValue);
     }
     public ProductPage() {
+        sortDropdown = $(By.xpath("//select[@class='product_sort_container']"));
     }
     public void sortByPriceLowest() {
-        $(By.xpath("//select[@class='product_sort_container']")).click();
+        sortDropdown.click();
         $(By.xpath("//option[@value='az']")).click();
     }
     public void sortByPriceHighest() {
-        $(By.xpath("//select[@class='product_sort_container']")).click();
+        sortDropdown.click();
         $(By.xpath("//option[@value='hilo']")).click();
     }
     public void sortByPriceFirstInEnd() {
-        $(By.xpath("//select[@class='product_sort_container']")).click();
+        sortDropdown.click();
         $(By.xpath("//option[@value='za']")).click();
     }
     public String getProductNameLowest() {
@@ -30,12 +35,15 @@ public class ProductPage {
         return $(By.xpath("//a[@id='item_5_title_link']")).getText();
     }
     public String getProductNameFirstInEnd() {
+
         return $(By.xpath("//a[@id='item_3_title_link']")).getText();
     }
     public void addToCart() {
+
         $(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory '][1]")).click();
     }
     public void goToCart() {
+
         $(By.xpath("//a[@class='shopping_cart_link']")).click();
     }
 }
