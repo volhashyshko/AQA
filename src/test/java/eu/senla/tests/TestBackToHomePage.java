@@ -7,7 +7,7 @@ import pageObjects.CartPage;
 import static com.codeborne.selenide.Selenide.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestLesson7 {
+public class TestBackToHomePage {
     @BeforeAll
     public void logIn() {
         LoginPage loginPage = new LoginPage();
@@ -25,41 +25,33 @@ public class TestLesson7 {
 
         productsPage.verifyPageTitle();
         productsPage.sortByPriceLowest();
-        productsPage.getProductNameLowest();
+        String lowestPricedProductName = productsPage.getProductNameLowest();
         productsPage.addToCart();
-        //System.out.println("Товар 1 добавлен - "+productsPage.getProductNameLowest());
 
         productsPage.sortByPriceHighest();
         productsPage.getProductNameHighest();
+        String highestPricedProductName = productsPage.getProductNameHighest();
         productsPage.addToCart();
-        //System.out.println("Товар 2 добавлен - "+productsPage.getProductNameHighest());
 
         productsPage.sortByPriceFirstInEnd();
         productsPage.getProductNameFirstInEnd();
+        String firstInEndPricedProductName = productsPage.getProductNameFirstInEnd();
         productsPage.addToCart();
-        //System.out.println("Товар 3 добавлен - "+productsPage.getProductNameFirstInEnd());
 
         productsPage.goToCart();
-        //System.out.println("Переход в корзину");
 
-        cartPage.getCardItemCount();
+        String firstProductNameInCart = cartPage.getProductNameFirst();
+        Assertions.assertEquals(lowestPricedProductName, firstProductNameInCart);
 
-        //System.out.println("Проверка соответствия товаров в корзине");
-        String firstProductName =  cartPage.getProductNameFirst();
-        //System.out.println("Название 1 товара - " + firstProductName);
+        String secondProductNameInCart = cartPage.getProductNameSecond();
+        Assertions.assertEquals(highestPricedProductName, secondProductNameInCart);
 
-        String secondProductName = cartPage.getProductNameSecond();
-        //System.out.println("Название 2 товара - " + secondProductName);
+        String thirdProductNameInCart = cartPage.getProductNameThird();
+        Assertions.assertEquals(firstInEndPricedProductName, thirdProductNameInCart);
 
-        String thirdProductName = cartPage.getProductNameThird();
-        //System.out.println("Название 3 товара - " + thirdProductName);
-
-        //.out.println("Один товар удален");
         cartPage.deleteProduct();
-        cartPage.getCardItemCount();
         cartPage.backToTheHomePage();
         productsPage.verifyPageTitle();
-        System.out.println("Осуществлен возврат на главную страницу");// нет проверки в тесте
 
         Thread.sleep(1000);
     }

@@ -13,7 +13,6 @@ public class LoginPage {
         Configuration.browserSize = "1920x1080";
     }
     public void openLoginPage() {
-        //System.out.println("Начальная страница открыта");
         open("https://www.saucedemo.com/");
         enterCredentials("standard_user", "secret_sauce");
         clickLoginButton();
@@ -24,7 +23,6 @@ public class LoginPage {
     }
     public void clickLoginButton() {
         $("input[value='Login']").click();
-        //System.out.println("Осуществлен переход на главную страницу");
     }
 }
 
