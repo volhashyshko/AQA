@@ -50,10 +50,10 @@ public class TestBackToHomePage {
         Assertions.assertEquals(firstInEndPricedProductName, thirdProductNameInCart);
 
         cartPage.deleteProduct();
+        cartPage.verifyProductRemoval();
+
         cartPage.backToTheHomePage();
         productsPage.verifyPageTitle();
-
-        Thread.sleep(1000);
     }
 }
 

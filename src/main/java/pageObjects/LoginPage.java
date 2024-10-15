@@ -7,6 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 public class LoginPage {
     private final SelenideElement userNameField = $("#user-name");
     private final SelenideElement passwordField = $("#password");
+    private final SelenideElement loginButton = $("input[value='Login']");
     public LoginPage() {
         Configuration.browser = "chrome";
         Configuration.headless = false;
@@ -22,7 +23,7 @@ public class LoginPage {
         passwordField.setValue(password);
     }
     public void clickLoginButton() {
-        $("input[value='Login']").click();
+        loginButton.click();
     }
 }
 

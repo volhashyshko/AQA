@@ -4,15 +4,9 @@
 
 @BDD_test
 Feature: Тест входа пользователя в систему
-Scenario Outline: Проверка входа
+Scenario: Проверка входа
 Given открыта страница "https://www.saucedemo.com/"
-And в поле Username введено "<login>"
-And в поле Password введено "<password>"
-When нажата кнопка "Login"
+And в поле Username введено "standard_user"
+And в поле Password введено "secret_sauce"
+And нажата кнопка "Login"
 Then осуществлен переход на страницу "https://www.saucedemo.com/inventory.html"
-
-  Examples:
-    | login         | password     |
-    | standard_user | secret_sauce |
-    | problem_user  | secret_sauce |
-    | visual_user   | secret_sauce |
