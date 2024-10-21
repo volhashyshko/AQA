@@ -16,12 +16,11 @@ public class ProductPage {
     private final SelenideElement productNameFirstInEnd = $(By.xpath("//a[@id='item_3_title_link']"));
     private final SelenideElement addToCartButton = $(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory '][1]"));
     private final SelenideElement cartLink = $(By.xpath("//a[@class='shopping_cart_link']"));
-
+    public ProductPage() {
+    }
     public void verifyPageTitle() {
         String actualValue = titleElement.getText();
         Assertions.assertEquals("Products", actualValue);
-    }
-    public ProductPage() {
     }
     public void sortByPriceLowest() {
         sortDropdown.click();

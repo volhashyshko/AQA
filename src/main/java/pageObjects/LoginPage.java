@@ -1,7 +1,6 @@
 package pageObjects;
 
 import static com.codeborne.selenide.Selenide.*;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 
 public class LoginPage {
@@ -9,9 +8,6 @@ public class LoginPage {
     private final SelenideElement passwordField = $("#password");
     private final SelenideElement loginButton = $("input[value='Login']");
     public LoginPage() {
-        Configuration.browser = "chrome";
-        Configuration.headless = false;
-        Configuration.browserSize = "1920x1080";
     }
     public void openLoginPage() {
         open("https://www.saucedemo.com/");

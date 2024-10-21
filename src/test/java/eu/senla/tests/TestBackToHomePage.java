@@ -1,5 +1,6 @@
 package eu.senla.tests;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import pageObjects.LoginPage;
 import pageObjects.ProductPage;
@@ -10,6 +11,9 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestBackToHomePage {
     @BeforeAll
     public void logIn() {
+        Configuration.browser = "chrome";
+        Configuration.headless = false;
+        Configuration.browserSize = "1920x1080";
         LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage();
     }
@@ -19,7 +23,7 @@ public class TestBackToHomePage {
     }
     @Test
     @DisplayName("Проверка возможности возврата на главную страницу из корзины без оформления заказа")
-    public void e2eScenario() throws InterruptedException {
+    public void e2eScenario() {
         ProductPage productsPage = new ProductPage();
         CartPage cartPage = new CartPage();
 
