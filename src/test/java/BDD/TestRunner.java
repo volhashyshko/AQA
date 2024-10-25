@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "./src/test/resources/features",
         glue = "BDD",
         tags = "@BDD_test",
-      //  dryRun = false,
+      //dryRun = false,
         snippets = CucumberOptions.SnippetType.CAMELCASE)
 
 public class TestRunner {
