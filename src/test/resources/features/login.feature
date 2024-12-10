@@ -7,7 +7,7 @@ Scenario Outline: Проверка входа
 Given открыта страница "https://www.saucedemo.com/"
 And в поле Username введено "<login>"
 And в поле Password введено "<password>"
-And нажата кнопка "Login"
+And нажата кнопка Login
 Then осуществлен переход на страницу "https://www.saucedemo.com/inventory.html"
 
   Examples:

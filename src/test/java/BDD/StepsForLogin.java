@@ -19,14 +19,14 @@ public class StepsForLogin {
         userNameField.setValue(username);
     }
     @Given("^в поле Password введено \"([^\"]*)\"$")
-    public void enterPassword( String password) {
+    public void enterPassword(String password) {
         passwordField.setValue(password);
     }
-    @Given("^нажата кнопка \"([^\"]*)\"$")
-    public void clickLoginButton(String button) {
-        if (button.equals("Login")) {
+    @Given("^нажата кнопка Login$" )
+    public void clickLoginButton() {
+        //if (button.equals("Login")) {
             loginButton.click();
-        }
+       // }
     }
     @Then("^осуществлен переход на страницу \"([^\"]*)\"$")
     public void  openProductPage(String url) {

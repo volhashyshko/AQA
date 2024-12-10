@@ -1,6 +1,7 @@
 package pageObjects;
 
 import com.codeborne.selenide.ElementsCollection;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,7 +17,7 @@ public class CartPage {
     private final ElementsCollection cardItemCount = $$(By.xpath("//div[@class='cart_item_label']"));
     public CartPage() {
     }
-
+    @Step("Check Products Names In Cart")
     public String getProductNameFirst() {
         return productNameFirst.getText();
     }
@@ -28,18 +29,22 @@ public class CartPage {
     public String getProductNameThird() {
         return productNameThird.getText();
     }
+    @Step("Get Card Item Count")
     public int getCardItemCount() {
         return cardItemCount.size();
     }
+    @Step("Verify Product Removal")
     public void verifyProductRemoval() {
         int itemCountBeforeRemoval = getCardItemCount();
         deleteProduct();
         int itemCountAfterRemoval = getCardItemCount();
         Assertions.assertEquals(itemCountBeforeRemoval - 1, itemCountAfterRemoval, "Товар не был удален из корзины");
     }
+    @Step("Delete Product")
         public void deleteProduct() {
         deleteButton.click();
     }
+    @Step("Back To The Home Page")
         public void backToTheHomePage() {
         backButton.click();
     }

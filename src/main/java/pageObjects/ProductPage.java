@@ -1,6 +1,7 @@
 package pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
@@ -18,18 +19,22 @@ public class ProductPage {
     private final SelenideElement cartLink = $(By.xpath("//a[@class='shopping_cart_link']"));
     public ProductPage() {
     }
+    @Step("Verify Page Title")
     public void verifyPageTitle() {
         String actualValue = titleElement.getText();
         Assertions.assertEquals("Products", actualValue);
     }
+    @Step("Sort By Price Lowest")
     public void sortByPriceLowest() {
         sortDropdown.click();
         sortAz.click();
     }
+    @Step("Sort By Price Highest")
     public void sortByPriceHighest() {
         sortDropdown.click();
         sortHilo.click();
     }
+    @Step("Sort By Price FirstInEnd")
     public void sortByPriceFirstInEnd() {
         sortDropdown.click();
         sortZa.click();
@@ -43,9 +48,11 @@ public class ProductPage {
     public String getProductNameFirstInEnd() {
         return productNameFirstInEnd.getText();
     }
+    @Step("Add To Cart")
     public void addToCart() {
         addToCartButton.click();
     }
+    @Step("Go To Cart")
     public void goToCart() {
         cartLink.click();
     }
