@@ -25,12 +25,10 @@ public class TestBackToHomePage {
         LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage();
     }
-
     @AfterAll
     public void tearDown() {
         closeWebDriver();
     }
-
     private void takeScreenshot(String stepName) {
         step(stepName, () -> {
             String screenshotPath = screenshot(stepName);
@@ -40,18 +38,15 @@ public class TestBackToHomePage {
                 Path path = Paths.get(uri);
                 Allure.addAttachment(stepName, new ByteArrayInputStream(Files.readAllBytes(path)));
             } catch (Exception e) {
-                e.printStackTrace(); // Обработка исключений
+                e.printStackTrace();
             }
         });
     }
-
-    // Обработка ошибок в тестах
     private void handleTestError(String methodName) {
         takeScreenshot("Ошибка в методе " + methodName);
         String text = "Это пример текста для прикрепления к отчету Allure.";
         Allure.addAttachment("Результат", "text/plain", text);
     }
-
     @Severity(SeverityLevel.BLOCKER)
     @Description("Добавление товара в корзину")
     @Feature("E2E сценарий")
@@ -68,24 +63,20 @@ public class TestBackToHomePage {
             productsPage.sortByPriceLowest();
             productsPage.getProductNameLowest();
             productsPage.addToCart();
-            //takeScreenshot("Добавление самого дешевого товара в корзину");
 
             productsPage.sortByPriceHighest();
             productsPage.getProductNameHighest();
             productsPage.addToCart();
-            //takeScreenshot("Добавление самого дорогого товара в корзину");
 
             productsPage.sortByPriceFirstInEnd();
             productsPage.getProductNameFirstInEnd();
             productsPage.addToCart();
-            //takeScreenshot("Добавление товара с первой позиции в корзину");
 
         } catch (ElementNotFound | Exception e) {
             handleTestError("addToCart");
-            throw e; // Перебрасываем исключение для корректного завершения теста
+            throw e;
         }
     }
-
     @Severity(SeverityLevel.CRITICAL)
     @Description("e2e критикал")
     @Feature("E2E сценарий")
@@ -104,36 +95,29 @@ public class TestBackToHomePage {
             productsPage.sortByPriceLowest();
             String lowestPricedProductName = productsPage.getProductNameLowest();
             productsPage.addToCart();
-            //takeScreenshot("Добавление самого дешевого товара в корзину");
 
             productsPage.sortByPriceHighest();
             String highestPricedProductName = productsPage.getProductNameHighest();
             productsPage.addToCart();
-            //takeScreenshot("Добавление самого дорогого товара в корзину");
 
             productsPage.sortByPriceFirstInEnd();
             String firstInEndPricedProductName = productsPage.getProductNameFirstInEnd();
             productsPage.addToCart();
-            //takeScreenshot("Добавление товара с первой позиции в корзину");
 
             productsPage.goToCart();
             takeScreenshot("Переход в корзину");
 
             String firstProductNameInCart = cartPage.getProductNameFirst();
             Assertions.assertEquals(lowestPricedProductName, firstProductNameInCart);
-            //takeScreenshot("Проверка первого товара в корзине");
 
             String secondProductNameInCart = cartPage.getProductNameSecond();
             Assertions.assertEquals(highestPricedProductName, secondProductNameInCart);
-            //takeScreenshot("Проверка второго товара в корзине");
 
             String thirdProductNameInCart = cartPage.getProductNameThird();
             Assertions.assertEquals(firstInEndPricedProductName, thirdProductNameInCart);
-            //takeScreenshot("Проверка третьего товара в корзине");
 
             cartPage.deleteProduct();
             cartPage.verifyProductRemoval();
-            //takeScreenshot("Удаление товара из корзины");
 
             cartPage.backToTheHomePage();
             productsPage.verifyPageTitle();
@@ -163,17 +147,14 @@ public class TestBackToHomePage {
             productsPage.sortByPriceLowest();
             productsPage.getProductNameLowest();
             productsPage.addToCart();
-            //takeScreenshot("Добавление самого дешевого товара в корзину");
 
             productsPage.sortByPriceHighest();
             productsPage.getProductNameHighest();
             productsPage.addToCart();
-            //takeScreenshot("Добавление самого дорогого товара в корзину");
 
             productsPage.sortByPriceFirstInEnd();
             productsPage.getProductNameFirstInEnd();
             productsPage.addToCart();
-            //takeScreenshot("Добавление товара с первой позиции в корзину");
             productsPage.goToCart();
             takeScreenshot("Переход в корзину");
 
