@@ -25,26 +25,36 @@ public class TestDatabase extends TestsSetups {
     @Order(2)
     @DisplayName("Отправка INSERT запроса")
     public void testInsertRequest() throws SQLException {
-        String query = "INSERT INTO reg_office.citizens (surname, name, middlename, dateofbirth, gender) VALUES ('Leonardo', 'Di Caprio', 'Иванович', '1986-12-25', 'm')";
+        String query = "INSERT INTO reg_office.citizens (surname, name, middlename, dateofbirth, gender) VALUES ('Di Caprio', 'Leonardo', 'Иванович', '1986-12-25', 'm')";
         JDBCConnection.insertIntoTable(query);
 
-        String selectQuery = "SELECT * FROM reg_office.citizens WHERE surname='Leonardo' AND name='Di Caprio' AND middlename='Иванович' AND dateofbirth='1986-12-25' AND gender='m'";
+        String selectQuery = "SELECT * FROM reg_office.citizens WHERE surname='Di Caprio' AND name='Leonardo' AND middlename='Иванович' AND dateofbirth='1986-12-25' AND gender='m'";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
 
         assertTrue(rs.next(), "ResultSet should contain at least one row");
         String generatedCitizenId = rs.getString("citizenid");
         assertAll("Should return inserted data",
                 () -> assertEquals(generatedCitizenId, rs.getString("citizenid")),
-                () -> assertEquals("Leonardo", rs.getString("surname")),
-                () -> assertEquals("Di Caprio", rs.getString("name")),
+                () -> assertEquals("Di Caprio", rs.getString("surname")),
+                () -> assertEquals("Leonardo", rs.getString("name")),
                 () -> assertEquals("Иванович", rs.getString("middlename")),
                 () -> assertEquals("1986-12-25", rs.getString("dateofbirth")),
                 () -> assertEquals("m", rs.getString("gender")));
-
         rs.close();
     }
     @Test
     @Order(3)
+    @DisplayName("Отправка простого SELECT запроса. Проверка имени")
+    public void testSelectRequest_checkName() throws SQLException {
+        String query = "SELECT * FROM reg_office.citizens WHERE name='Leonardo'";
+        ResultSet rs = JDBCConnection.selectFromTable(query);
+        String expectedName = "Leonardo";
+        String actualName;
+        actualName = requireNonNull(rs).getString("name");
+        assertEquals(expectedName, actualName, "Actual name is '" + actualName + "', Excpected - '" + expectedName + "'.");
+    }
+    @Test
+    @Order(4)
     @DisplayName("Отправка UPDATE запроса")
     public void testUpdateRequest() throws SQLException {
         String query = "UPDATE reg_office.citizens SET surname = 'Петров замена' WHERE citizenid='21556'";
@@ -58,10 +68,10 @@ public class TestDatabase extends TestsSetups {
         assertEquals(expectedTown, actualTown, "Actual town is '" + actualTown + "', Excpected - '" + expectedTown + "'.");
     }
     @Test
-    @Order(4)
+    @Order(5)
     @DisplayName("Отправка DELETE запроса")
     public void testDeleteRequest() {
-        String query = "DELETE FROM reg_office.citizens WHERE citizenid='21559'";
+        String query = "DELETE FROM reg_office.citizens WHERE surname='Di Caprio'";
         JDBCConnection.deleteFromTable(query);
     }
 }

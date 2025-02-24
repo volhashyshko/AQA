@@ -79,7 +79,8 @@ public class JDBCConnection {
         }
     }
     public static void updateInTable(String query) {
-        try (Statement stmt = connectToDB().createStatement()) {
+        try {
+        stmt = connectToDB().createStatement();
             log.info("Sending request to DB: " + query);
             stmt.executeUpdate(query);
             log.info("Data in the table updated successfully");
@@ -88,8 +89,9 @@ public class JDBCConnection {
         }
     }
     public static void deleteFromTable(String query) {
-        try (Statement stmt = connectToDB().createStatement()) {
+        try {
             log.info("Sending request to DB: " + query);
+            stmt = connectToDB().createStatement();
             stmt.executeUpdate(query);
             log.info("Data deleted from the table successfully");
         } catch (SQLException se) {
