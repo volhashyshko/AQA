@@ -5,8 +5,10 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 public class JDBCConnection {
     private static final String HOST = "86.57.161.116";
+    //private static final String HOST = "192.168.1.93";
     private static final String DB_NAME = "register_office";
     private static final String URL = "jdbc:postgresql://" + HOST + ":50432/" + DB_NAME;
+    //private static final String URL = "jdbc:postgresql://" + HOST + ":5432/" + DB_NAME;
     private static final String USER = "user";
     private static final String PASSWORD = "user_senla";
     private static Connection con = null;
@@ -59,10 +61,10 @@ public class JDBCConnection {
     }
     public static ResultSet selectFromTable(String query) {
         try {
-            stmt = connectToDB().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stmt = connectToDB().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); //TODO Learn later
             log.info("Sending request to DB: " + query);
             rs = stmt.executeQuery(query);
-            rs.next();
+            rs.next(); //TODO Learn later
         } catch (SQLException se) {
             log.error(se.getMessage());
         }

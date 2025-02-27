@@ -49,30 +49,39 @@ public class TestDatabase extends TestsSetups {
         String query = "SELECT * FROM reg_office.citizens WHERE name='Leonardo'";
         ResultSet rs = JDBCConnection.selectFromTable(query);
         String expectedName = "Leonardo";
-        String actualName;
-        actualName = requireNonNull(rs).getString("name");
+        String actualName = requireNonNull(rs).getString("name");
         assertEquals(expectedName, actualName, "Actual name is '" + actualName + "', Excpected - '" + expectedName + "'.");
     }
     @Test
     @Order(4)
     @DisplayName("Отправка UPDATE запроса")
     public void testUpdateRequest() throws SQLException {
-        String query = "UPDATE reg_office.citizens SET surname = 'Петров замена' WHERE citizenid='21556'";
+        String query = "UPDATE reg_office.citizens SET surname = 'Петров замена' WHERE citizenid='47469'";
         JDBCConnection.updateInTable(query);
 
-        String selectQuery = "SELECT surname FROM reg_office.citizens WHERE citizenid='21556'";
+        String selectQuery = "SELECT surname FROM reg_office.citizens WHERE citizenid='47469'";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
-        String expectedTown = "Петров замена";
-        String actualTown;
-        actualTown = requireNonNull(rs).getString("surname");
-        assertEquals(expectedTown, actualTown, "Actual town is '" + actualTown + "', Excpected - '" + expectedTown + "'.");
+        String expectedSurname = "Петров замена";
+        String actualSurname = requireNonNull(rs).getString("surname");
+        assertEquals(expectedSurname, actualSurname, "Actual town is '" + actualSurname + "', Excpected - '" + expectedSurname + "'.");
     }
     @Test
     @Order(5)
     @DisplayName("Отправка DELETE запроса")
-    public void testDeleteRequest() {
-        String query = "DELETE FROM reg_office.citizens WHERE surname='Di Caprio'";
-        JDBCConnection.deleteFromTable(query);
+    public void testDeleteRequest() throws SQLException {
+        String selectQuery = "SELECT * FROM reg_office.citizens WHERE surname='Di Caprio'";
+        ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
+        assertTrue(rs.next(), "No record found for surname 'Di Caprio'");
+
+        String expectedSurname = "Di Caprio";
+        String actualSurname = rs.getString("surname");
+        assertEquals(expectedSurname, actualSurname, "Actual name is '" + actualSurname + "', Expected - '" + expectedSurname + "'.");
+
+        String deleteQuery = "DELETE FROM reg_office.citizens WHERE surname ='Di Caprio'";
+        JDBCConnection.deleteFromTable(deleteQuery);
+
+        ResultSet rsAfterDelete = JDBCConnection.selectFromTable(selectQuery);
+        assertFalse(rsAfterDelete.next(), "Record with surname 'Di Caprio' should have been deleted.");
     }
 }
 
