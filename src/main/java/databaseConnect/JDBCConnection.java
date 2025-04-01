@@ -61,10 +61,10 @@ public class JDBCConnection {
     }
     public static ResultSet selectFromTable(String query) {
         try {
-            stmt = connectToDB().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); //TODO Learn later
+            stmt = connectToDB().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); //TODO Learn later ++
             log.info("Sending request to DB: " + query);
             rs = stmt.executeQuery(query);
-            rs.next(); //TODO Learn later
+            rs.next(); //TODO Learn later ++
         } catch (SQLException se) {
             log.error(se.getMessage());
         }

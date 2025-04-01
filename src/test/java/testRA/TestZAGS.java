@@ -46,7 +46,7 @@ public class TestZAGS {
         String username = "user";
         String password = "senlatest";
 
-        RequestForCreationApp app = new RequestForCreationApp("wedding", "Шишко", "Ольга", "Александровна","375292999999", "КН3111111","Шишко","Павел", "Иванович", "1985-01-01", "КН3222222", "мужской", "2010-01-01", "Шишко", "Одинец", "Ольга", "Александровна", "1986-12-12", "КН3111111", null, null, null, null, null, null, null, null, null);
+        RequestForCreationApp app = new RequestForCreationApp("wedding", "Шишко", "Ольга", "Александровна","2323232323", "КН311111","Шишко","Павел", "Иванович", "1985-01-01", "КН322222", "мужской", "2025-03-31", "Шишко", "Одинец", "Ольга", "Александровна", "1986-03-02", "КН333333", null, null, null, null, null, "Gorod", null, null, "Gorod");
         ResponseCreationApp successApp = given()
                 .auth().preemptive().basic(username, password)
                 .body(app)
@@ -61,12 +61,5 @@ public class TestZAGS {
         Assertions.assertNotNull(successApp.getApplicationid(), "Application ID should not be null");
         Assertions.assertNotNull(successApp.getMerrigecertificateid(), "Marriage Certificate ID should not be null");
 
-        // Если вы ожидаете конкретные значения, присвойте их переменным
-        Integer expectedApplicationId = successApp.getApplicationid(); // или другое ожидаемое значение
-        Integer expectedMarriageCertificateId = successApp.getMerrigecertificateid(); // или другое ожидаемое значение
-
-        // Проверяем, что полученные значения равны ожидаемым
-        Assertions.assertEquals(expectedApplicationId, successApp.getApplicationid(), "Application ID does not match");
-        Assertions.assertEquals(expectedMarriageCertificateId, successApp.getMerrigecertificateid(), "Marriage Certificate ID does not match");
     }
 }

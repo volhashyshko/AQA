@@ -1,64 +1,97 @@
 package testRA;
 
-public class RequestForCreationApp {
-    public static String mode;
-    public static String personalLastName;
-    public static String personalFirstName;
-    public static String personalMiddleName;
-    public static String personalPhoneNumber;
-    public static String personalNumberOfPassport;
-    public static String citizenLastName;
-    public static String citizenFirstName;
-    public static String citizenMiddleName;
-    public static String citizenBirthDate;
-    public static String citizenNumberOfPassport;
-    public static String citizenGender;
-    public static String dateOfMarriage;
-    public static String newLastName;
-    public static String anotherPersonLastName;
-    public static String anotherPersonFirstName;
-    public static String anotherPersonMiddleName;
-    public static String birth_of_anotoherPerson;
-    public static String anotherPersonPassport;
-    public static String birth_father;
-    public static String birth_grandma;
-    public static String birth_grandpa;
-    public static String birth_mother;
-    public static String birth_place;
-    public static String citizenAddress;
-    public static String death_dateOfDeath;
-    public static String death_placeOfDeath;
-    public static String personalAddress;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public RequestForCreationApp(String mode, String personalLastName, String personalFirstName, String personalMiddleName, String personalPhoneNumber, String personalNumberOfPassport, String citizenLastName, String citizenFirstName, String citizenMiddleName, String citizenBirthDate, String citizenNumberOfPassport, String citizenGender, String dateOfMarriage, String newLastName, String anotherPersonLastName, String anotherPersonFirstName, String anotherPersonMiddleName, String birth_of_anotoherPerson, String anotherPersonPassport, String birth_father, String birth_grandma, String birth_grandpa, String birth_mother, String birth_place, String citizenAddress, String death_dateOfDeath, String death_placeOfDeath, String personalAddress) {
-        RequestForCreationApp.mode = mode;
-        RequestForCreationApp.personalLastName = personalLastName;
-        RequestForCreationApp.personalFirstName = personalFirstName;
-        RequestForCreationApp.personalMiddleName = personalMiddleName;
-        RequestForCreationApp.personalPhoneNumber = personalPhoneNumber;
-        RequestForCreationApp.personalNumberOfPassport = personalNumberOfPassport;
-        RequestForCreationApp.citizenLastName = citizenLastName;
-        RequestForCreationApp.citizenFirstName = citizenFirstName;
-        RequestForCreationApp.citizenMiddleName = citizenMiddleName;
-        RequestForCreationApp.citizenBirthDate = citizenBirthDate;
-        RequestForCreationApp.citizenNumberOfPassport = citizenNumberOfPassport;
-        RequestForCreationApp.citizenGender = citizenGender;
-        RequestForCreationApp.dateOfMarriage = dateOfMarriage;
-        RequestForCreationApp.newLastName = newLastName;
-        RequestForCreationApp.anotherPersonLastName = anotherPersonLastName;
-        RequestForCreationApp.anotherPersonFirstName = anotherPersonFirstName;
-        RequestForCreationApp.anotherPersonMiddleName = anotherPersonMiddleName;
-        RequestForCreationApp.birth_of_anotoherPerson = birth_of_anotoherPerson;
-        RequestForCreationApp.anotherPersonPassport = anotherPersonPassport;
-        RequestForCreationApp.birth_father = birth_father;
-        RequestForCreationApp.birth_grandma = birth_grandma;
-        RequestForCreationApp.birth_grandpa = birth_grandpa;
-        RequestForCreationApp.birth_mother = birth_mother;
-        RequestForCreationApp.birth_place = birth_place;
-        RequestForCreationApp.citizenAddress = citizenAddress;
-        RequestForCreationApp.death_dateOfDeath = death_dateOfDeath;
-        RequestForCreationApp.death_placeOfDeath = death_placeOfDeath;
-        RequestForCreationApp.personalAddress = personalAddress;
+public class RequestForCreationApp {
+    public String mode;
+    public String personalLastName;
+    public String personalFirstName;
+    public String personalMiddleName;
+    public String personalPhoneNumber;
+    public String personalNumberOfPassport;
+    public String citizenLastName;
+    public String citizenFirstName;
+    public String citizenMiddleName;
+    public String citizenBirthDate;
+    public String citizenNumberOfPassport;
+    public String citizenGender;
+    public String dateOfMarriage;
+    public String newLastName;
+    public String anotherPersonLastName;
+    public String anotherPersonFirstName;
+    public String anotherPersonMiddleName;
+    public String birth_of_anotoherPerson;
+    public String anotherPersonPassport;
+    public String birth_father;
+    public String birth_grandma;
+    public String birth_grandpa;
+    public String birth_mother;
+    public String birth_place;
+    public String citizenAddress;
+    public String death_dateOfDeath;
+    public String death_placeOfDeath;
+    public String personalAddress;
+
+    @JsonCreator
+    public RequestForCreationApp(
+            @JsonProperty("mode") String mode,
+            @JsonProperty("personalLastName") String personalLastName,
+            @JsonProperty("personalFirstName") String personalFirstName,
+            @JsonProperty("personalMiddleName") String personalMiddleName,
+            @JsonProperty("personalPhoneNumber") String personalPhoneNumber,
+            @JsonProperty("personalNumberOfPassport") String personalNumberOfPassport,
+            @JsonProperty("citizenLastName") String citizenLastName,
+            @JsonProperty("citizenFirstName") String citizenFirstName,
+            @JsonProperty("citizenMiddleName") String citizenMiddleName,
+            @JsonProperty("citizenBirthDate") String citizenBirthDate,
+            @JsonProperty("citizenNumberOfPassport") String citizenNumberOfPassport,
+            @JsonProperty("citizenGender") String citizenGender,
+            @JsonProperty("dateOfMarriage") String dateOfMarriage,
+            @JsonProperty("newLastName") String newLastName,
+            @JsonProperty("anotherPersonLastName") String anotherPersonLastName,
+            @JsonProperty("anotherPersonFirstName") String anotherPersonFirstName,
+            @JsonProperty("anotherPersonMiddleName") String anotherPersonMiddleName,
+            @JsonProperty("birth_of_anotoherPerson") String birth_of_anotoherPerson,
+            @JsonProperty("anotherPersonPassport") String anotherPersonPassport,
+            @JsonProperty("birth_father") String birth_father,
+            @JsonProperty("birth_grandma") String birth_grandma,
+            @JsonProperty("birth_grandpa") String birth_grandpa,
+            @JsonProperty("birth_mother") String birth_mother,
+            @JsonProperty("birth_place") String birth_place,
+            @JsonProperty("citizenAddress") String citizenAddress,
+            @JsonProperty("death_dateOfDeath") String death_dateOfDeath,
+            @JsonProperty("death_placeOfDeath") String death_placeOfDeath,
+            @JsonProperty("personalAddress") String personalAddress) {
+
+        this.mode = mode;
+        this.personalLastName = personalLastName;
+        this.personalFirstName = personalFirstName;
+        this.personalMiddleName = personalMiddleName;
+        this.personalPhoneNumber = personalPhoneNumber;
+        this.personalNumberOfPassport = personalNumberOfPassport;
+        this.citizenLastName = citizenLastName;
+        this.citizenFirstName = citizenFirstName;
+        this.citizenMiddleName = citizenMiddleName;
+        this.citizenBirthDate = citizenBirthDate;
+        this.citizenNumberOfPassport = citizenNumberOfPassport;
+        this.citizenGender = citizenGender;
+        this.dateOfMarriage = dateOfMarriage;
+        this.newLastName = newLastName;
+        this.anotherPersonLastName = anotherPersonLastName;
+        this.anotherPersonFirstName = anotherPersonFirstName;
+        this.anotherPersonMiddleName = anotherPersonMiddleName;
+        this.birth_of_anotoherPerson = birth_of_anotoherPerson;
+        this.anotherPersonPassport = anotherPersonPassport;
+        this.birth_father = birth_father;
+        this.birth_grandma = birth_grandma;
+        this.birth_grandpa = birth_grandpa;
+        this.birth_mother = birth_mother;
+        this.birth_place = birth_place;
+        this.citizenAddress = citizenAddress;
+        this.death_dateOfDeath = death_dateOfDeath;
+        this.death_placeOfDeath = death_placeOfDeath;
+        this.personalAddress = personalAddress;
     }
 
     public String getMode() {
@@ -66,7 +99,7 @@ public class RequestForCreationApp {
     }
 
     public void setMode(String mode) {
-        RequestForCreationApp.mode = mode;
+        this.mode = mode;
     }
 
     public String getPersonalLastName() {
@@ -74,7 +107,7 @@ public class RequestForCreationApp {
     }
 
     public void setPersonalLastName(String personalLastName) {
-        RequestForCreationApp.personalLastName = personalLastName;
+        this.personalLastName = personalLastName;
     }
 
     public String getPersonalFirstName() {
@@ -82,7 +115,7 @@ public class RequestForCreationApp {
     }
 
     public void setPersonalFirstName(String personalFirstName) {
-        RequestForCreationApp.personalFirstName = personalFirstName;
+        this.personalFirstName = personalFirstName;
     }
 
     public String getPersonalMiddleName() {
@@ -90,7 +123,7 @@ public class RequestForCreationApp {
     }
 
     public void setPersonalMiddleName(String personalMiddleName) {
-        RequestForCreationApp.personalMiddleName = personalMiddleName;
+        this.personalMiddleName = personalMiddleName;
     }
 
     public String getPersonalPhoneNumber() {
@@ -98,7 +131,7 @@ public class RequestForCreationApp {
     }
 
     public void setPersonalPhoneNumber(String personalPhoneNumber) {
-        RequestForCreationApp.personalPhoneNumber = personalPhoneNumber;
+        this.personalPhoneNumber = personalPhoneNumber;
     }
 
     public String getPersonalNumberOfPassport() {
@@ -106,7 +139,7 @@ public class RequestForCreationApp {
     }
 
     public void setPersonalNumberOfPassport(String personalNumberOfPassport) {
-        RequestForCreationApp.personalNumberOfPassport = personalNumberOfPassport;
+        this.personalNumberOfPassport = personalNumberOfPassport;
     }
 
     public String getCitizenLastName() {
@@ -114,7 +147,7 @@ public class RequestForCreationApp {
     }
 
     public void setCitizenLastName(String citizenLastName) {
-        RequestForCreationApp.citizenLastName = citizenLastName;
+        this.citizenLastName = citizenLastName;
     }
 
     public String getCitizenFirstName() {
@@ -122,7 +155,7 @@ public class RequestForCreationApp {
     }
 
     public void setCitizenFirstName(String citizenFirstName) {
-        RequestForCreationApp.citizenFirstName = citizenFirstName;
+        this.citizenFirstName = citizenFirstName;
     }
 
     public String getCitizenMiddleName() {
@@ -130,7 +163,7 @@ public class RequestForCreationApp {
     }
 
     public void setCitizenMiddleName(String citizenMiddleName) {
-        RequestForCreationApp.citizenMiddleName = citizenMiddleName;
+        this.citizenMiddleName = citizenMiddleName;
     }
 
     public String getCitizenBirthDate() {
@@ -138,7 +171,7 @@ public class RequestForCreationApp {
     }
 
     public void setCitizenBirthDate(String citizenBirthDate) {
-        RequestForCreationApp.citizenBirthDate = citizenBirthDate;
+        this.citizenBirthDate = citizenBirthDate;
     }
 
     public String getCitizenNumberOfPassport() {
@@ -146,7 +179,7 @@ public class RequestForCreationApp {
     }
 
     public void setCitizenNumberOfPassport(String citizenNumberOfPassport) {
-        RequestForCreationApp.citizenNumberOfPassport = citizenNumberOfPassport;
+        this.citizenNumberOfPassport = citizenNumberOfPassport;
     }
 
     public String getCitizenGender() {
@@ -154,7 +187,7 @@ public class RequestForCreationApp {
     }
 
     public void setCitizenGender(String citizenGender) {
-        RequestForCreationApp.citizenGender = citizenGender;
+        this.citizenGender = citizenGender;
     }
 
     public String getDateOfMarriage() {
@@ -162,7 +195,7 @@ public class RequestForCreationApp {
     }
 
     public void setDateOfMarriage(String dateOfMarriage) {
-        RequestForCreationApp.dateOfMarriage = dateOfMarriage;
+        this.dateOfMarriage = dateOfMarriage;
     }
 
     public String getNewLastName() {
@@ -170,7 +203,7 @@ public class RequestForCreationApp {
     }
 
     public void setNewLastName(String newLastName) {
-        RequestForCreationApp.newLastName = newLastName;
+        this.newLastName = newLastName;
     }
 
     public String getAnotherPersonLastName() {
@@ -178,7 +211,7 @@ public class RequestForCreationApp {
     }
 
     public void setAnotherPersonLastName(String anotherPersonLastName) {
-        RequestForCreationApp.anotherPersonLastName = anotherPersonLastName;
+        this.anotherPersonLastName = anotherPersonLastName;
     }
 
     public String getAnotherPersonFirstName() {
@@ -186,7 +219,7 @@ public class RequestForCreationApp {
     }
 
     public void setAnotherPersonFirstName(String anotherPersonFirstName) {
-        RequestForCreationApp.anotherPersonFirstName = anotherPersonFirstName;
+        this.anotherPersonFirstName = anotherPersonFirstName;
     }
 
     public String getAnotherPersonMiddleName() {
@@ -194,7 +227,7 @@ public class RequestForCreationApp {
     }
 
     public void setAnotherPersonMiddleName(String anotherPersonMiddleName) {
-        RequestForCreationApp.anotherPersonMiddleName = anotherPersonMiddleName;
+        this.anotherPersonMiddleName = anotherPersonMiddleName;
     }
 
     public String getBirth_of_anotoherPerson() {
@@ -202,7 +235,7 @@ public class RequestForCreationApp {
     }
 
     public void setBirth_of_anotoherPerson(String birth_of_anotoherPerson) {
-        RequestForCreationApp.birth_of_anotoherPerson = birth_of_anotoherPerson;
+        this.birth_of_anotoherPerson = birth_of_anotoherPerson;
     }
 
     public String getAnotherPersonPassport() {
@@ -210,77 +243,81 @@ public class RequestForCreationApp {
     }
 
     public void setAnotherPersonPassport(String anotherPersonPassport) {
-        RequestForCreationApp.anotherPersonPassport = anotherPersonPassport;
+        this.anotherPersonPassport = anotherPersonPassport;
     }
-    public static String getBirth_father() {
+
+    public String getBirth_father() {
         return birth_father;
     }
 
-    public static void setBirth_father(String birth_father) {
-        RequestForCreationApp.birth_father = birth_father;
+    public void setBirth_father(String birth_father) {
+        this.birth_father = birth_father;
     }
 
-    public static String getBirth_grandma() {
+    public String getBirth_grandma() {
         return birth_grandma;
     }
 
-    public static void setBirth_grandma(String birth_grandma) {
-        RequestForCreationApp.birth_grandma = birth_grandma;
+    public void setBirth_grandma(String birth_grandma) {
+        this.birth_grandma = birth_grandma;
     }
 
-    public static String getBirth_grandpa() {
+    public String getBirth_grandpa() {
         return birth_grandpa;
     }
 
-    public static void setBirth_grandpa(String birth_grandpa) {
-        RequestForCreationApp.birth_grandpa = birth_grandpa;
+    public void setBirth_grandpa(String birth_grandpa) {
+        this.birth_grandpa = birth_grandpa;
     }
 
-    public static String getBirth_mother() {
+    public String getBirth_mother() {
         return birth_mother;
     }
 
-    public static void setBirth_mother(String birth_mother) {
-        RequestForCreationApp.birth_mother = birth_mother;
+    public void setBirth_mother(String birth_mother) {
+        this.birth_mother = birth_mother;
     }
 
-    public static String getBirth_place() {
+    public String getBirth_place() {
         return birth_place;
     }
 
-    public static void setBirth_place(String birth_place) {
-        RequestForCreationApp.birth_place = birth_place;
+    public void setBirth_place(String birth_place) {
+        this.birth_place = birth_place;
     }
 
-    public static String getCitizenAddress() {
+    public String getCitizenAddress() {
         return citizenAddress;
     }
 
-    public static void setCitizenAddress(String citizenAddress) {
-        RequestForCreationApp.citizenAddress = citizenAddress;
+    public void setCitizenAddress(String citizenAddress) {
+        this.citizenAddress = citizenAddress;
     }
 
-    public static String getDeath_dateOfDeath() {
+    public String getDeath_dateOfDeath() {
         return death_dateOfDeath;
     }
 
-    public static void setDeath_dateOfDeath(String death_dateOfDeath) {
-        RequestForCreationApp.death_dateOfDeath = death_dateOfDeath;
+    public void setDeath_dateOfDeath(String death_dateOfDeath) {
+        this.death_dateOfDeath = death_dateOfDeath;
     }
 
-    public static String getDeath_placeOfDeath() {
+    public String getDeath_placeOfDeath() {
         return death_placeOfDeath;
     }
 
-    public static void setDeath_placeOfDeath(String death_placeOfDeath) {
-        RequestForCreationApp.death_placeOfDeath = death_placeOfDeath;
+    public void setDeath_placeOfDeath(String death_placeOfDeath) {
+        this.death_placeOfDeath = death_placeOfDeath;
     }
 
-    public static String getPersonalAddress() {
+    public String getPersonalAddress() {
         return personalAddress;
     }
 
-    public static void setPersonalAddress(String personalAddress) {
-        RequestForCreationApp.personalAddress = personalAddress;
+    public void setPersonalAddress(String personalAddress) {
+        this.personalAddress = personalAddress;
     }
 }
+
+
+
