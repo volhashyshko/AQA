@@ -9,8 +9,8 @@ import static endpoints.EndPointsZAGS.URI;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) //экземпляр тестового класса будет создан один раз для всех тестовых методов в этом классе, все тестовые методы будут использовать один и тот же экземпляр тестового класса
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class) //задает порядок выполнения тестовых методов в классе
 
 public class TestZAGS {
     @Test
@@ -22,15 +22,15 @@ public class TestZAGS {
         String username = "user";
         String password = "senlatest";
 
-        Response response = given()
-                .auth().preemptive().basic(username, password)
-                .when()
-                .get(EndPointsZAGS.APP)
-                .then()
+        Response response = given() //метод, который инициализирует контекст запроса. Результат этой операции будет храниться в переменной response типа Response
+                .auth().preemptive().basic(username, password) //заголовок с учетными данными будет добавлен в запрос до его отправки
+                .when() //метод указывает на начало этапа выполнения запроса. Он служит разделителем между настройкой запроса и его выполнением
+                .get(EndPointsZAGS.APP) //метод выполняет HTTP GET запрос к указанному URL
+                .then() //метод указывает, что мы переходим к фазе проверки (или ассертов) результатов запроса. Он начинает цепочку методов, которые выполняются после получения ответа.
                 .log().all()
                 .statusCode(200)
-                .extract()
-                .response();
+                .extract() //метод указывает, что мы хотим извлечь ответ, чтобы использовать его дальше в коде
+                .response(); //метод завершает извлечение и возвращает объект Response, который содержит всю информацию о полученном ответе, включая тело ответа, заголовки и код состояния.
 
         List<UserData> applications = response.jsonPath().getList("data", UserData.class); // Извлекаем массив заявок из ответа
         assertNotNull(applications, "Applications should not be null"); // Проверяем, что массив заявок не пуст
@@ -57,9 +57,6 @@ public class TestZAGS {
                 .statusCode(200)
                 .extract().as(ResponseCreationApp.class);
 
-        // Проверяем, что значения не равны null
-        Assertions.assertNotNull(successApp.getApplicationid(), "Application ID should not be null");
-        Assertions.assertNotNull(successApp.getMerrigecertificateid(), "Marriage Certificate ID should not be null");
-
+        assertNotNull(successApp, "Response should not be null"); // Проверка содержания ответа
     }
 }

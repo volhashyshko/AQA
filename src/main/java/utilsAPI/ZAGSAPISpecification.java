@@ -20,16 +20,13 @@ public class ZAGSAPISpecification {
                 .log(LogDetail.BODY)
                 .build();
     }
-
     public static ResponseSpecification responseSpecOK200(){
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
                 .build();
     }
-
     public static void installSpecification(RequestSpecification request, ResponseSpecification response) {
-        RestAssured.requestSpecification = request;
-        RestAssured.responseSpecification = response;
-
+        RestAssured.requestSpecification = request; //объект, который содержит настройки запроса
+        RestAssured.responseSpecification = response; //объект, который описывает ожидаемые характеристики ответа
     }
 }
