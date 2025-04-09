@@ -26,7 +26,7 @@ public class ZAGSAPISpecification {
                 .build();
     }
     public static void installSpecification(RequestSpecification request, ResponseSpecification response) {
-        RestAssured.requestSpecification = request; //объект, который содержит настройки запроса
-        RestAssured.responseSpecification = response; //объект, который описывает ожидаемые характеристики ответа
+        RestAssured.requestSpecification = request;
+        RestAssured.responseSpecification = response;
     }
 }
